@@ -1,8 +1,8 @@
-# Bajaj Hackathon: FinTech Innovation Challenge
+# ClaimClarity AI: AI-Powered Insurance Claim Processing
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
-A comprehensive solution developed during the Bajaj Hackathon. This project aims to solve **[briefly state the problem your project solves, e.g., "the inefficiency in the insurance claims process" or "the complexity of personal financial management"**].
+A comprehensive solution that leverages AI to automate insurance claim analysis and decision-making, aiming to solve the inefficiency in the insurance claims process.
 
 ## 📋 Table of Contents
 
@@ -20,24 +20,26 @@ A comprehensive solution developed during the Bajaj Hackathon. This project aims
 
 ## 🌟 About The Project
 
-In the fast-paced world of financial services, there is a constant need for innovation. Our project, developed for the Bajaj Hackathon, introduces a platform designed to **[describe the main goal, e.g., "leverage AI to automate loan approvals" or "provide users with a unified dashboard for all their investments"**]. It provides a seamless, secure, and user-friendly experience to tackle critical challenges in the FinTech industry.
+In the fast-paced world of financial services, there is a constant need for innovation. ClaimClarity AI introduces a platform designed to leverage AI to automate insurance claim processing. It provides a seamless, secure, and user-friendly experience to tackle critical challenges in the FinTech industry by using a multi-agent RAG pipeline to analyze claims and provide decisions with justifications.
 
 ## ✨ Key Features
 
-* **Secure Authentication:** Robust user login and registration system.
-* **Intuitive Dashboard:** A clean and interactive user interface to **[mention a key action, e.g., "visualize financial data"**].
-* **Real-time Processing:** **[Mention a core feature, e.g., "Instant eligibility checks" or "Live portfolio tracking"**].
+* **Automated Claim Processing:** Uses a multi-agent RAG pipeline to analyze and process insurance claims automatically.
+* **Intuitive Dashboard:** A clean and interactive user interface built with Streamlit to visualize claim processing results and statistics.
+* **Real-time Processing:** Provides instant claim analysis and decisions.
 * **Data Security:** Best practices for ensuring user data is safe and encrypted.
-* **Scalable Architecture:** Built with a modular design to allow for easy future expansion.
+* **Scalable Architecture:** Built with a modular design using FastAPI for the backend, allowing for easy future expansion.
+* **Voice-based Support:** Includes a voice assistant for handling natural language queries.
+* **FAQ Pipeline:** A separate pipeline to handle general policy questions.
 
 ## 🛠️ Tech Stack
 
 This project is built using a modern and robust technology stack:
 
-* **Backend:** Python (with Flask framework)
-* **Frontend:** HTML5, CSS3, JavaScript
-* **Database:** MySQL / Firebase
-* **Deployment:** [e.g., RENDER]
+* **Backend:** Python with FastAPI and LangGraph
+* **Frontend:** Streamlit
+* **Database:** Pinecone, Upstash
+* **Deployment:** Render
 
 ## 🚀 Getting Started
 
@@ -74,26 +76,29 @@ Make sure you have the following software installed on your system:
     ```sh
     pip install -r requirements.txt
     ```
-    *(Note: You may need to create a `requirements.txt` file by running `pip freeze > requirements.txt`)*
-
-5.  **Set up the database:**
-    * Configure your database connection details in a `.env` file or directly in the configuration file.
-    * Run any necessary database migrations.
+5.  **Set up environment variables:**
+    * Create a `.env` file in the root directory.
+    * Add the following environment variables to the `.env` file:
+        ```
+        OPENAI_API_KEY=your_openai_api_key
+        PINECONE_API_KEY=your_pinecone_api_key
+        SERPAPI_KEY=your_serpapi_key
+        UPSTASH_VECTOR_URL=your_upstash_vector_url
+        UPSTASH_VECTOR_TOKEN=your_upstash_vector_token
+        ```
 
 ## 🏃 Usage
 
-1.  **Run the application server:**
+1.  **Run the Streamlit application:**
     ```sh
-    flask run
+    streamlit run app.py
     ```
-    or
+2.  **Run the FastAPI server:**
     ```sh
-    python app.py
+    uvicorn api.main:app --reload
     ```
-2.  **Open your web browser** and navigate to:
-    `http://127.0.0.1:5000`
-
-You should now see the application's home page.
+3.  **Open your web browser** and navigate to the Streamlit URL (usually `http://localhost:8501`) to use the claim processing interface.
+4.  The API will be available at `http://127.0.0.1:8000`.
 
 ## 📁 Project Structure
 
